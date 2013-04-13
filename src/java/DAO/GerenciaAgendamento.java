@@ -5,6 +5,7 @@
 package DAO;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.Calendar;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -31,9 +32,19 @@ public class GerenciaAgendamento implements Serializable {
     private Curso curso;
     private Salas sala;
     private String tipoAtendimento;
-    private Calendar dataAgendamento;
+    private String dataAgendamento;
     private Agendamento agendamento;
+    private Calendar data;
 
+    public Calendar getData() {
+        return data;
+    }
+
+    public void setData(Calendar data) {
+        this.data = data;
+    }
+
+    
     public Academico getAcademico() {
         return academico;
     }
@@ -82,11 +93,11 @@ public class GerenciaAgendamento implements Serializable {
         this.tipoAtendimento = tipoAtendimento;
     }
 
-    public Calendar getDataAgendamento() {
+    public String getDataAgendamento() {
         return dataAgendamento;
     }
 
-    public void setDataAgendamento(Calendar dataAgendamento) {
+    public void setDataAgendamento(String dataAgendamento) {
         this.dataAgendamento = dataAgendamento;
     }
 
@@ -105,7 +116,9 @@ public class GerenciaAgendamento implements Serializable {
     }
 
     public void agendarConsulta() {
-        agendamento = new Agendamento(paciente.getId(), null, academico.getId(), sala.getId(), null, tipoAtendimento, null);
+        //Calendar data = Calendar.getInstance();
+       // data.set(Integer.parseInt(dataAgendamento.substring(6, 10)), Integer.parseInt(dataAgendamento.substring(3, 5)), Integer.parseInt(dataAgendamento.substring(0, 2)));
+        agendamento = new Agendamento(paciente.getId(), data.getTime(), academico.getId(), sala.getId(), null, tipoAtendimento, null);
         boolean bol;
         bol = UsuarioDao.salvaUsuario(agendamento);
         if (bol) {
