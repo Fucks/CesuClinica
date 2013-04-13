@@ -21,9 +21,9 @@
                         <h:outputLabel for="telefone" value="Telefone:* " />
                         <p:inputMask id="telefone" value="#{gerenciaAcademico.academico.telefone}" mask="(99)9999-9999" required="true" />
                         <h:outputLabel value="Curso:* " />
-                        <p:selectOneMenu value="#{gerenciaAcademico.curso}" effect="fade" converter="curso">  
+                        <p:selectOneMenu value="#{gerenciaAcademico.curso}" effect="fade" >  
                             <f:selectItem itemLabel="Selecione o Curso" itemValue="" />  
-                            <f:selectItems value="#{gerenciaAcademico.lista}" var="curso"  itemLabel="#{curso.nomeCurso}" itemValue="#{curso}"/>  
+                            <f:selectItems value="#{gerenciaAcademico.lista}"   itemLabel="#{curso.nomeCurso}" itemValue="#{curso}"/>  
                         </p:selectOneMenu> 
                         <p:commandButton id="btSalvar" value="Cadastrar" actionListener="#{gerenciaAcademico.salvaAcademico}" update="panel,mensagem" />
                     </h:panelGrid>
