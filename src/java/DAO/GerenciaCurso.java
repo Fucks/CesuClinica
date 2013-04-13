@@ -17,10 +17,18 @@ import modelDatabase.Curso;
  */
 @ManagedBean
 @ViewScoped
-public class GerenciaCurso implements Serializable{
+public class GerenciaCurso implements Serializable {
 
     private Curso curso = new Curso();
-   
+    private String mensagem;
+
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
 
     public Curso getCurso() {
         return curso;
@@ -39,8 +47,10 @@ public class GerenciaCurso implements Serializable{
     public void salvaCurso() {
         boolean bol = UsuarioDao.salvaUsuario(curso);
         if (bol) {
+            mensagem = "Curso " + curso.getNomeCurso() + " foi cadastrado!";
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Curso Cadastrado!", "Curso " + curso.getNomeCurso() + " foi cadastrado com sucesso!"));
         } else {
+            mensagem = "Erro ao cadastrar o curso.";
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Erro!", "Ocorreu um erro ao cadastrar o curso."));
         }
     }
