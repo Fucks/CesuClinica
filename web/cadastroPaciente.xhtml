@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Insert title here</title>
+    </h:head>
+    <h:body>
+        <h:form id="cadastraPaciente">
+            <p:panel header="Cadastro de Pacientes" id="panel">
+                <p:growl id="mensagem" showDetail="true" life="2000" />
+                <table>
+                    <tr>
+                        <td><table>
+                                <tr>
+                                    <td align="right"><h:outputLabel for="nome" value="Nome: *" /></td>
+                                    <td><p:inputText id="nome" value="#{gerenciaPaciente.paciente.nome}"
+                                                     required="true" size="100">
+                                            <f:validateLength minimum="1" />
+                                        </p:inputText></td>
+                                </tr>
+                            </table></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td align="right"><h:outputLabel for="profissao"
+                                                                     value="Profissão:" /></td>
+                                    <td><p:inputText id="profissao"
+                                                     value="#{gerenciaPaciente.paciente.profissao}" size="50">
+
+                                        </p:inputText></td>
+
+                                    <td align="right"><h:outputText value="Sexo: *" /></td>
+                                    <td><p:selectOneRadio id="sexo" value="#{gerenciaPaciente.paciente.sexo}">
+                                            <f:selectItem itemLabel="Masculino" itemValue="true" />
+                                            <f:selectItem itemLabel="Feminino" itemValue="false" />
+                                        </p:selectOneRadio></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><table>
+                                <tr>
+                                    <td align="right"><h:outputLabel for="dataNascimento"
+                                                                     value="Data de Nascimento: *" /></td>
+                                    <td><p:inputMask id="dataNascimento" value="#{gerenciaPaciente.dataNascimento}" mask="99/99/9999" required="true" /></td>
+
+
+                                    <td align="right"><h:outputLabel for="rg" value="Rg: *" /></td>
+                                    <td><p:inputMask id="rg" value="#{gerenciaPaciente.paciente.rg}"
+                                                     mask="9.999.999-9" required="true" /></td>
+
+                                    <td align="right"><h:outputLabel for="cpf" value="Cpf: *" /></td>
+                                    <td><p:inputMask id="cpf" value="#{gerenciaPaciente.paciente.cpf}"
+                                                     mask="999.999.999-99" required="true" /></td>
+                                </tr>
+                            </table></td>
+                    </tr>
+
+                    <tr>
+                        <td><table>
+                                <tr>
+                                    <td align="right"><h:outputLabel for="cartaoSus"
+                                                                     value="Número do Cartão SUS: " /></td>
+                                    <td><p:inputText id="cartaoSus"
+                                                     value="#{gerenciaPaciente.paciente.cartaoSus}" /></td>
+                                </tr>
+                            </table></td>
+                    </tr>
+                    <tr>
+                        <td><table>
+                                <tr>
+                                    <td align="right"><h:outputLabel for="endereco"
+                                                                     value="Endereço: *" /></td>
+                                    <td><p:inputText id="endereco" value="#{gerenciaPaciente.paciente.endereco}"
+                                                     required="true">
+                                            <f:validateLength minimum="1" />
+                                        </p:inputText></td>
+                                </tr>
+                            </table></td>
+                    </tr>
+                    <tr>
+                        <td><table>
+                                <tr>
+                                    <td align="right"><h:outputLabel for="bairro" value="Bairro: *" /></td>
+                                    <td><p:inputText id="bairro" value="#{gerenciaPaciente.paciente.bairro}"
+                                                     required="true">
+                                            <f:validateLength minimum="1" />
+                                        </p:inputText></td>
+                                </tr>
+                            </table></td>
+                    </tr>
+                    <tr>
+                        <td><table>
+                                <tr>
+                                    <td align="right"><h:outputLabel for="cidade"
+                                                                    value="Cidade: *" /></td>
+                                    <td><p:inputText id="cidade" value="#{gerenciaPaciente.paciente.cidade}"
+                                                     required="true">
+                                            <f:validateLength minimum="1" />
+                                        </p:inputText></td>
+                                </tr>
+                            </table></td>
+                    </tr>
+                    <tr>
+                        <td><table>
+                                <tr>
+                                    <td align="right"><h:outputLabel for="cep" value="Cep: *" /></td>
+                                    <td><p:inputMask id="cep" value="#{gerenciaPaciente.paciente.cep}"
+                                                     mask="999.999-99" required="true" /></td>
+                                </tr>
+                            </table></td>
+                    </tr>
+                    <tr>
+                        <td><table>
+                                <tr>
+                                    <td align="right"><h:outputLabel for="telefone"
+                                                                     value="Telefone: *" /></td>
+                                    <td><p:inputMask id="telefone" value="#{gerenciaPaciente.paciente.telefone}"
+                                                     mask="(99)9999-9999" required="true" /></td>
+                                </tr>
+                            </table></td>
+                    </tr>
+                    <tr>
+                        <td><table>
+                                <tr>
+                                    <td align="right"><h:outputLabel for="celular"
+                                                                     value="Celular: *" /></td>
+                                    <td><p:inputMask id="celular" value="#{gerenciaPaciente.paciente.celular}"
+                                                     mask="(99)9999-9999" /></td>
+                                </tr>
+                            </table></td>
+                    </tr>
+                    <tr>
+                        <td><table>
+                                <tr>
+                                    <td align="right"><h:outputLabel for="email" value="E-mail:" /></td>
+                                    <td><p:inputText id="email" value="#{gerenciaPaciente.paciente.email}" /></td>
+                                </tr>
+                            </table></td>
+                    </tr>
+                    <tr>
+                        <td><table>
+                                <tr>
+                                    <td align="right" valign="top"><h:outputLabel
+                                            for="observacoes" value="Observações: " /></td>
+                                    <td><p:inputTextarea id="observacoes" rows="6" cols="33"
+                                                         value="#{gerenciaPaciente.paciente.observacoes}" /></td>
+                                </tr>
+                            </table></td>
+                    </tr>
+                </table>
+                <p:commandButton value="Salvar" update="panel,mensagem" id="ajax"  
+                                 actionListener="#{gerenciaPaciente.salvaPaciente}"/> 
+            </p:panel>
+
+        </h:form>
+    </h:body>
+</html>
+

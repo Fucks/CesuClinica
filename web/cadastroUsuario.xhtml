@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Cadastro de Usuário</title>
+    </h:head>
+    <h:body>
+        <div>
+            <h:form id="cadastraUsuario" >
+                <p:growl id="mensagem" showDetail="true" life="2000" />
+                <p:panel header="Cadastro de Usuário" id="painel">
+                        <h:outputLabel for="nomeUsuario" value="Nome do Usuário:* " />
+                        <p:inputText id="nomeUsuario" value="#{gerenciaUsuario.usuario.nomeCompleto}" size="100" required="true" /><br />
+                        <h:outputLabel for="usuario" value="Usuário:* " />
+                        <p:inputText id="usuario" value="#{gerenciaUsuario.usuario.usuario}" size="30" required="true" /><br/>
+                        <h:outputLabel for="senha" value="Senha:* " />
+                        <p:password id="senha" value="#{gerenciaUsuario.usuario.senha}" required="true" size="30"  feedback="true"  promptLabel="Insira sua senha" weakLabel="Fraca"  
+                                    goodLabel="Bom" strongLabel="Segura" /><br/>
+                        <p:commandButton id="botaoForm" value="Cadastrar"  actionListener="#{gerenciaUsuario.salvaUsuario}" update="painel,mensagem" />
+                </p:panel>
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+    </h:head>
+    <h:body>
+        <h:form id="form">
+            <p:growl id="mensagem" life="5000" showDetail="true" />
+            <p:dataTable rendered="#{gerenciaUsuario.visualizar}" id="listaUsuarios" var="usuario" value="#{gerenciaUsuario.seila}" paginator="true" rows="10" selection="#{gerenciaUsuario.usuarioSelecionado}" selectionMode="single">
+                <p:ajax event="rowSelect" listener="#{gerenciaUsuario.mostraSelecionado}" update=":form:mensagem :form:painelDados" />
+                <p:ajax event="rowUnselect" />
+                <f:facet name="header">
+                    Selecione o Usuário desejado.
+                </f:facet>
+                <p:column headerText="Nome">
+                    #{usuario.nomeCompleto}
+                </p:column>
+                <p:column headerText="Usuário"> 
+                    #{usuario.usuario}
+                </p:column>
+            </p:dataTable>
+            <p:commandButton value="Listar" actionListener="#{gerenciaUsuario.listaUsuarios}" update="listaUsuarios,form" />
+            <p:panel rendered="#{gerenciaUsuario.visualizar}" header="Dados do Usuário Selecionado" id="painelDados">
+                Nome:<h:outputText value="#{gerenciaUsuario.usuarioSelecionado.nomeCompleto}" /><br/>
+                Usuario:<h:outputText value="#{gerenciaUsuario.usuarioSelecionado.usuario}" /><br />
+                Senha:<h:outputText value="#{gerenciaUsuario.usuarioSelecionado.senha}" /><br />
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>
+

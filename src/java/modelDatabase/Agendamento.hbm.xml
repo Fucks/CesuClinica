@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/04/2013 09:30:35 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="modelDatabase.Agendamento" table="agendamento" catalog="cesuclinica">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="idPaciente" type="java.lang.Integer">
+            <column name="idPaciente" />
+        </property>
+        <property name="dataAgendamento" type="date">
+            <column name="dataAgendamento" length="10" />
+        </property>
+        <property name="idAcademico" type="java.lang.Integer">
+            <column name="idAcademico" />
+        </property>
+        <property name="idSala" type="java.lang.Integer">
+            <column name="idSala" />
+        </property>
+        <property name="idUsuario" type="java.lang.Integer">
+            <column name="idUsuario" />
+        </property>
+        <property name="tipoAtendimento" type="string">
+            <column name="tipoAtendimento" length="45" />
+        </property>
+        <property name="idCurso" type="java.lang.Integer">
+            <column name="idCurso" />
+        </property>
+    </class>
+</hibernate-mapping>
