@@ -105,13 +105,8 @@ public class GerenciaAgendamento implements Serializable {
     }
 
     public void agendarConsulta() {
-        System.out.println(dataAgendamento);
-        agendamento.setIdAcademico(academico.getId());
-        agendamento.setIdPaciente(paciente.getId());
-        agendamento.setIdSala(sala.getId());
-        agendamento.setTipoAtendimento(tipoAtendimento);
-        System.out.println(agendamento);
-        boolean bol = false;
+        agendamento = new Agendamento(paciente.getId(), null, academico.getId(), sala.getId(), null, tipoAtendimento, null);
+        boolean bol;
         bol = UsuarioDao.salvaUsuario(agendamento);
         if (bol) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Agendamento Concluido!", "O agendamento do paciente " + paciente.getNome() + " foi concluido!"));
