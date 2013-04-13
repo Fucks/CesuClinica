@@ -36,7 +36,7 @@
                             #{paciente.celular}
                         </p:column>
                     </p:dataTable>
-                    <p:panel header="Dados do Usuário Selecionado" id="painelDados">
+                    <p:panel header="Dados do Paciente Selecionado" id="painelDados">
                         Nome:<h:outputText      value="#{gerenciaAgendamento.paciente.nome}"    /><br />
                         Cpf:<h:outputText       value="#{gerenciaAgendamento.paciente.cpf}"     /><br />
                         Rg:<h:outputText        value="#{gerenciaAgendamento.paciente.rg}"      /><br />
@@ -64,11 +64,8 @@
                         <p:column headerText="Telefone">
                             #{academico.telefone}
                         </p:column>
-                        <p:column headerText="RG">
-                            #{paciente.rg}
-                        </p:column>
                     </p:dataTable>
-                    <p:panel  header="Dados do Usuário Selecionado" id="painelDados">
+                    <p:panel  header="Dados do Acadêmico Selecionado" id="painelDados">
                         Nome:<h:outputText      value="#{gerenciaAgendamento.academico.nome}"    /><br />
                         Telefone:<h:outputText       value="#{gerenciaAgendamento.academico.telefone}"     /><br />
                     </p:panel>
