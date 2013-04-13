@@ -150,17 +150,6 @@ public class GerenciaAgendamento implements Serializable {
     }
 
     public void agendarConsulta() {
-        setMOSTRA_DATA_PACIENTE(true);
-        setMOSTRA_PACIENTE_SELECIONADO(true);
     }
 
-    public static void selecionaPaciente(SelectEvent event) {
-        MOSTRA_PACIENTE_SELECIONADO = true;
-        MOSTRA_DATA_PACIENTE = false;
-        MOSTRA_BUSCA_PACIENTE = false;
-    }
-
-    public static void mostraListaPacientes() {
-        MOSTRA_DATA_PACIENTE = true;
-    }
 }

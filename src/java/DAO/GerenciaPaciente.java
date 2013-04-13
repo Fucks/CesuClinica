@@ -95,7 +95,6 @@ public class GerenciaPaciente implements Serializable {
     public void buscaPaciente(){
         listaPesquisa = PacienteDao.pesquisarPaciente(pacienteBusca);
         pacienteDataModel = new PacienteDataModel(listaPesquisa);
-        GerenciaAgendamento.mostraListaPacientes();
     }
     
 }
