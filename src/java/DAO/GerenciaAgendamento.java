@@ -6,8 +6,10 @@ package DAO;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import modelDatabase.Academico;
 import modelDatabase.Agendamento;
 import modelDatabase.Curso;
@@ -103,11 +105,18 @@ public class GerenciaAgendamento implements Serializable {
     }
 
     public void agendarConsulta() {
-        agendamento = new Agendamento();
-        agendamento.setDataAgendamento(dataAgendamento.getTime());
+        System.out.println(dataAgendamento);
         agendamento.setIdAcademico(academico.getId());
         agendamento.setIdPaciente(paciente.getId());
         agendamento.setIdSala(sala.getId());
         agendamento.setTipoAtendimento(tipoAtendimento);
+        System.out.println(agendamento);
+        boolean bol = false;
+        bol = UsuarioDao.salvaUsuario(agendamento);
+        if (bol) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Agendamento Concluido!", "O agendamento do paciente " + paciente.getNome() + " foi concluido!"));
+        } else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Agendamento Falhou!", "O agendamento falhou!"));
+        }
     }
 }

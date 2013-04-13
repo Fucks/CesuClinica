@@ -10,6 +10,7 @@
     </h:head>
     <h:body>
         <div>
+            
             <h:form id="formulario" >
                 <p:panel id="painel" header="Agendar Consulta">
                     <h:panelGrid  columns="3" ><h:outputLabel for="nomePesquisa" value="Pesquisar: " /><p:inputText id="nomePesquisa" value="#{gerenciaPaciente.pacienteBusca}" />
@@ -89,10 +90,11 @@
         </div>
         <div>
             <h:form id="informacoesAdicionais" >
+                <p:growl id="mensagem" showDetail="true" life="5000" />
                 <p:panel header="Informações Adicionais">
-                    <h:outputLabel for="dataAgendamento" value="Data do Agendamento: " /><p:calendar id="dataAgendamento" value="#{gerenciaAgendamento.dataAgendamento}" /> <br />
+                 <!--   <h:outputLabel for="dataAgendamento" value="Data do Agendamento: " /><p:calendar id="dataAgendamento" value="#{gerenciaAgendamento.dataAgendamento}" /> <br />-->
                     <h:outputLabel for="tipoAtendimento" value="Tipo Atendimento: " /><p:inputText id="tipoAtendimento" value="#{gerenciaAgendamento.tipoAtendimento}" /><br />
-                    <p:commandButton value="Agendar Consulta" actionListener="#{gerenciaAgendamento.agendarConsulta()}" />
+                    <p:commandButton value="Agendar Consulta" actionListener="#{gerenciaAgendamento.agendarConsulta()}" update="mensagem"/>
                 </p:panel>
             </h:form>
         </div>

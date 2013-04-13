@@ -89,6 +89,11 @@ public class Agendamento  implements java.io.Serializable {
         this.idCurso = idCurso;
     }
 
+    @Override
+    public String toString() {
+        return "Agendamento{" + "id=" + id + ", idPaciente=" + idPaciente + ", dataAgendamento=" + dataAgendamento + ", idAcademico=" + idAcademico + ", idSala=" + idSala + ", idUsuario=" + idUsuario + ", tipoAtendimento=" + tipoAtendimento + ", idCurso=" + idCurso + '}';
+    }
+
 
 
 
