@@ -4,9 +4,10 @@
  */
 package DAO;
 
+import java.io.Serializable;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import modelDatabase.Curso;
 
@@ -15,10 +16,11 @@ import modelDatabase.Curso;
  * @author Fucks
  */
 @ManagedBean
-@RequestScoped
-public class GerenciaCurso {
+@ViewScoped
+public class GerenciaCurso implements Serializable{
 
     private Curso curso = new Curso();
+   
 
     public Curso getCurso() {
         return curso;

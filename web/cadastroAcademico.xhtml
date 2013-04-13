@@ -11,7 +11,7 @@
     <h:body>
         <div>
             <h:form id="formulario">
-                <p:growl id="mensagem" showDetail="true" life="2000" />
+                <p:growl id="mensagem" showDetail="true" life="5000" />
                 <p:panel id="panel" header="Cadastro de Acadêmicos">
                     <h:panelGrid columns="2">
                         <h:outputLabel for="nome" value="Nome:* " />
@@ -20,11 +20,11 @@
                         </p:inputText>
                         <h:outputLabel for="telefone" value="Telefone:* " />
                         <p:inputMask id="telefone" value="#{gerenciaAcademico.academico.telefone}" mask="(99)9999-9999" required="true" />
-                        <!--<h:outputLabel value="Curso:* " />
-                        <p:selectOneMenu id="city" value="">  
-                            <f:selectItem itemLabel="Selecione o Curso" itemValue="" />  
-                            <f:selectItems value="" />  
-                        </p:selectOneMenu>-->
+                        <h:outputLabel value="Curso:* " />
+                        <p:selectOneMenu id="city" value="#{gerenciaAcademico.curso}">  
+                            <f:selectItem itemLabel="Selecione o Curso"  />  
+                            <f:selectItems value="#{gerenciaAcademico.lista}" />  
+                        </p:selectOneMenu> 
                         <p:commandButton id="btSalvar" value="Cadastrar" actionListener="#{gerenciaAcademico.salvaAcademico}" update="panel,mensagem" />
                     </h:panelGrid>
                 </p:panel>

@@ -34,6 +34,11 @@ public class Curso  implements java.io.Serializable {
         this.nomeCurso = nomeCurso;
     }
 
+    @Override
+    public String toString() {
+        return nomeCurso;
+    }
+
 
 
 

@@ -5,8 +5,7 @@
 package DAO;
 
 import java.io.Serializable;
-import java.sql.Date;
-import java.util.Calendar;
+import java.util.Date;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -34,16 +33,15 @@ public class GerenciaAgendamento implements Serializable {
     private String tipoAtendimento;
     private String dataAgendamento;
     private Agendamento agendamento;
-    private Calendar data;
+    private Date data;
 
-    public Calendar getData() {
+    public Date getData() {
         return data;
     }
 
-    public void setData(Calendar data) {
+    public void setData(Date data) {
         this.data = data;
     }
-
     
     public Academico getAcademico() {
         return academico;
@@ -118,7 +116,7 @@ public class GerenciaAgendamento implements Serializable {
     public void agendarConsulta() {
         //Calendar data = Calendar.getInstance();
        // data.set(Integer.parseInt(dataAgendamento.substring(6, 10)), Integer.parseInt(dataAgendamento.substring(3, 5)), Integer.parseInt(dataAgendamento.substring(0, 2)));
-        agendamento = new Agendamento(paciente.getId(), data.getTime(), academico.getId(), sala.getId(), null, tipoAtendimento, null);
+        agendamento = new Agendamento(paciente.getId(), data, academico.getId(), sala.getId(), null, tipoAtendimento, null);
         boolean bol;
         bol = UsuarioDao.salvaUsuario(agendamento);
         if (bol) {

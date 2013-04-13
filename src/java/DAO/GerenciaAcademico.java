@@ -12,6 +12,7 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import modelDatabase.Academico;
 import modelDatabase.AcademicoDataModel;
+import modelDatabase.Curso;
 
 /**
  *
@@ -26,6 +27,24 @@ public class GerenciaAcademico implements Serializable {
     private List<Academico> listaPesquisa;
     private AcademicoDataModel academicoDataModel;
     private String academicoPesquisa;
+    private Curso curso;
+    private List<Curso> lista;
+
+    public List<Curso> getLista() {
+        return lista;
+    }
+
+    public void setLista(List<Curso> lista) {
+        this.lista = lista;
+    }
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
+    }
 
     public Academico getAcademicoSelecionado() {
         return academicoSelecionado;
@@ -59,7 +78,6 @@ public class GerenciaAcademico implements Serializable {
         this.academicoPesquisa = academicoPesquisa;
     }
 
-    
     public Academico getAcademico() {
         return academico;
     }
@@ -69,9 +87,11 @@ public class GerenciaAcademico implements Serializable {
     }
 
     public GerenciaAcademico() {
+        lista = CursoDao.todosOsCursos();
     }
 
     public void salvaAcademico() {
+        academico.setCursoId(curso.getId());
         FacesContext context = FacesContext.getCurrentInstance();
         boolean bol = UsuarioDao.salvaUsuario(academico);
         if (bol) {
