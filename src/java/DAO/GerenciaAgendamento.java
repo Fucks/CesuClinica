@@ -24,9 +24,6 @@ import modelDatabase.Usuario;
 public class GerenciaAgendamento implements Serializable {
 
     private Academico academico;
-    private String pacienteBusca;
-    private String cursoBusca;
-    private String salaBusca;
     private Paciente paciente;
     private Usuario usuario;
     private Curso curso;
@@ -34,10 +31,6 @@ public class GerenciaAgendamento implements Serializable {
     private String tipoAtendimento;
     private Calendar dataAgendamento;
     private Agendamento agendamento;
-    //controles de VIEW
-    private static boolean MOSTRA_DATA_PACIENTE = false;
-    private static boolean MOSTRA_PACIENTE_SELECIONADO = false;
-    private static boolean MOSTRA_BUSCA_PACIENTE = true;
 
     public Academico getAcademico() {
         return academico;
@@ -45,57 +38,6 @@ public class GerenciaAgendamento implements Serializable {
 
     public void setAcademico(Academico academico) {
         this.academico = academico;
-    }
-
-    
-    
-    public static boolean isMOSTRA_BUSCA_PACIENTE() {
-        return MOSTRA_BUSCA_PACIENTE;
-    }
-
-    public static void setMOSTRA_BUSCA_PACIENTE(boolean MOSTRA_BUSCA_PACIENTE) {
-        GerenciaAgendamento.MOSTRA_BUSCA_PACIENTE = MOSTRA_BUSCA_PACIENTE;
-    }
-
-    
-    public boolean isMOSTRA_DATA_PACIENTE() {
-        return MOSTRA_DATA_PACIENTE;
-    }
-
-    public void setMOSTRA_DATA_PACIENTE(boolean MOSTRA_DATA_PACIENTE) {
-        this.MOSTRA_DATA_PACIENTE = MOSTRA_DATA_PACIENTE;
-    }
-
-    public boolean isMOSTRA_PACIENTE_SELECIONADO() {
-        return MOSTRA_PACIENTE_SELECIONADO;
-    }
-
-    public void setMOSTRA_PACIENTE_SELECIONADO(boolean MOSTRA_PACIENTE_SELECIONADO) {
-        this.MOSTRA_PACIENTE_SELECIONADO = MOSTRA_PACIENTE_SELECIONADO;
-    }
-
-    public String getPacienteBusca() {
-        return pacienteBusca;
-    }
-
-    public void setPacienteBusca(String pacienteBusca) {
-        this.pacienteBusca = pacienteBusca;
-    }
-
-    public String getCursoBusca() {
-        return cursoBusca;
-    }
-
-    public void setCursoBusca(String cursoBusca) {
-        this.cursoBusca = cursoBusca;
-    }
-
-    public String getSalaBusca() {
-        return salaBusca;
-    }
-
-    public void setSalaBusca(String salaBusca) {
-        this.salaBusca = salaBusca;
     }
 
     public Paciente getPaciente() {
@@ -161,6 +103,11 @@ public class GerenciaAgendamento implements Serializable {
     }
 
     public void agendarConsulta() {
+        agendamento = new Agendamento();
+        agendamento.setDataAgendamento(dataAgendamento.getTime());
+        agendamento.setIdAcademico(academico.getId());
+        agendamento.setIdPaciente(paciente.getId());
+        agendamento.setIdSala(sala.getId());
+        agendamento.setTipoAtendimento(tipoAtendimento);
     }
-
 }
