@@ -31,7 +31,7 @@ public class AcademicoDao {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction transacao = session.beginTransaction();
         transacao.begin();
-        Query listaPaciente = session.createQuery("from Academico academico where academico.nome like '%"+nomeAcademico+"%'");
-        return listaPaciente.list();
+        Query listaAcademico = session.createQuery("from Academico academico where academico.nome like '%"+nomeAcademico+"%'");
+        return listaAcademico.list();
     }
 }

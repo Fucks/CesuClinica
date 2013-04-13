@@ -8,12 +8,12 @@ import java.io.Serializable;
 import java.util.Calendar;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import modelDatabase.Academico;
 import modelDatabase.Agendamento;
 import modelDatabase.Curso;
 import modelDatabase.Paciente;
 import modelDatabase.Salas;
 import modelDatabase.Usuario;
-import org.primefaces.event.SelectEvent;
 
 /**
  *
@@ -23,6 +23,7 @@ import org.primefaces.event.SelectEvent;
 @ViewScoped
 public class GerenciaAgendamento implements Serializable {
 
+    private Academico academico;
     private String pacienteBusca;
     private String cursoBusca;
     private String salaBusca;
@@ -38,6 +39,16 @@ public class GerenciaAgendamento implements Serializable {
     private static boolean MOSTRA_PACIENTE_SELECIONADO = false;
     private static boolean MOSTRA_BUSCA_PACIENTE = true;
 
+    public Academico getAcademico() {
+        return academico;
+    }
+
+    public void setAcademico(Academico academico) {
+        this.academico = academico;
+    }
+
+    
+    
     public static boolean isMOSTRA_BUSCA_PACIENTE() {
         return MOSTRA_BUSCA_PACIENTE;
     }
